@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+        background-color: wheat;
+    }
+
+.subtitle {
+    color: palevioletred;
+}
+
+/* input styles */
+
+.input-part {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input-part__button {
+    width: 120px;
+    height: 30px;
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+
+/* output styles */
+.output-part__profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.output-part__name {
+    color: palevioletred;
+    font-weight: 600;
+}
