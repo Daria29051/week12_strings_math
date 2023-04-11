@@ -28,6 +28,18 @@
 }
 
 
+/* input part check */
+.input-part__check {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: baseline;
+}
+
+.input-part_check-list {
+    list-style: none;
+}
+
 /* output styles */
 .output-part__profile {
     display: flex;
@@ -39,4 +51,9 @@
 .output-part__name {
     color: palevioletred;
     font-weight: 600;
+}
+
+.output-part__date {
+    font-weight: 400;
+    font-size: 1em;
 }

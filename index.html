@@ -13,6 +13,18 @@
     <div class="container">
       <div class="input-part">
         <h2 class="subtitle">Оставьте Ваш комментарий</h2>
+        <!-- чекбокс -->
+        <div class="input-part__check">
+          <p>Показывать Ваше имя?</p>
+          <li class="input-part_check-list">
+            <input type="checkbox" name="check-name" id="yes" value="yes" />
+            <label for="yes">Yes</label>
+          </li>
+          <li class="input-part_check-list">
+            <input type="checkbox" name="check-name" id="no" value="no" />
+            <label for="no">No</label>
+          </li>
+        </div>
         <!-- Поле ввода ФИО -->
         <div class="input-part__name">
           <label for="name">Введите Ваше ФИО</label><br />
@@ -45,6 +57,7 @@
         <div class="output-part__profile">
           <div class="output-part__url"></div>
           <div class="output-part__name"></div>
+          <div class="output-part__date"></div>
         </div>
         <div class="output-part__comment"></div>
       </div>
