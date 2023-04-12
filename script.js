@@ -7,6 +7,7 @@ const button = document.getElementById('button');
 // Забираем  в переменные поля для вывода output
 const userNameOutput = document.querySelector('.output-part__name');
 
+
 const avatarOutput = document.querySelector('.output-part__url');
 
 const dateOutput = document.querySelector('.output-part__date');
@@ -68,7 +69,7 @@ const checkSpam  = () => {
 button.addEventListener('click', showOutputName); //вывод имени
 button.addEventListener('click', putRandomImage); // вывод аватара с условием рандом подбора картинки если не указан url
 button.addEventListener('click', checkSpam); // вывод комментария
-button.addEventListener('click', noName); //вывод username при незаполнен
+
 
 
 
@@ -80,26 +81,44 @@ const yesCheckbox = document.getElementById('yes'); //чекбокс "да"
 const noCheckbox = document.getElementById('no'); //чекбокс "нет"
 const NameFormPart = document.querySelector('.input-part__name'); //поле "фио и его инпут"
 
-// функция проверки выделения только 1 чекбокса единовременно
-const onlyOne= () =>  {
+// функция выделения только 1 чекбокса единовременно
+const onlyOneYes= () =>  {
 if (control === 0) {
 yesCheckbox.checked=true;
 noCheckbox.checked=false;
-control = 1;
 } else {
 noCheckbox.checked=true;
 yesCheckbox.checked=false;
-control = 0;
 }
 }
 
-// функция: если пользователь не ввел имя, то отобразить Username
+const onlyOneNo= () =>  {
+  if (control === 0) {
+  noCheckbox.checked=true;
+  yesCheckbox.checked=false;
+  } else {
+  noCheckbox.checked=true;
+  yesCheckbox.checked=false;
+  }
+  }
+
+// обработчик событий на выделение только  чекбокса
+noCheckbox.addEventListener('click', onlyOneNo);
+yesCheckbox.addEventListener('click', onlyOneYes);
+
+
+
+// функция: если пользователь не ввел имя или выбрал чекбокс No = не показывать имя, то отобрази Username
  function noName() {
   const userName = document.getElementById('name');
   const userNameValue = userName.value;
- if (userNameValue == null) { 
+ if ((userNameValue === "") && (noCheckbox.checked=true)) { 
   userNameOutput.innerHTML = "Username";
- }}
+ } 
+}
+
+//  обработчик событий на незаполненное поле имени
+ button.addEventListener('click', noName); //вывод username при незаполнен
 
 //  функция скрытия полей заполнения имени при нажатом no-чекбоксе
 const hideNameInputPart = () => {
@@ -119,9 +138,8 @@ const hideNameInputPart = () => {
 
 // вешаем обработчик событий (выделение только 1го чекбокса и скрытие поле с ФИО) на чекбоксы
     yesCheckbox.addEventListener('click', showNameInputPart);
-    yesCheckbox.addEventListener('click', onlyOne);
     noCheckbox.addEventListener('click', hideNameInputPart);
-    noCheckbox.addEventListener('click', onlyOne);
+
 
 
   //функция присвоения имени дню недели
@@ -235,13 +253,11 @@ const hours = addZeroToHours();
 const min = addZeroToMin();
 const sec = addZeroToSec();
 const totalDate = `${weekDay}, ${date} ${month} ${year} at ${hours}:${min}:${sec}`
-dateOutput.innerHTML = totalDate;
+dateOutput.innerHTML =totalDate;
 }
 
 //вешаем обработчик вывода даты на кнопку
 button.addEventListener('click', showDate);
 
 
-
-
-
+// функция последовательного отображения комментариев друг за другом
