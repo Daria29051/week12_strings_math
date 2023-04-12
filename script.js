@@ -29,14 +29,30 @@ const showOutputName = () => {
 }
 
 
-// функция вывода аватара
-  const showOutputAvatar = ()=> {
+// РАБОТА С АВАТАРОМ
 
-    const avatar = document.getElementById('avatar');
-    const avatarValue = avatar.value;
+    // // функция подстановки рандомного аватара
+    const putRandomImage = () => {
+      const avatar = document.getElementById('avatar');
+      const avatarValue = avatar.value;
+      if (avatarValue == "")  {
+      let image =  new Array();
+  image[0] = "https://omoro.ru/wp-content/uploads/2018/05/prikilnie-kartinki-na-avatarky-dlia-devyshek-12.jpg";
+  image[1] = "https://zamanilka.ru/wp-content/uploads/2022/07/kotik-ava-060722-1.jpg";
+  image[2] = "http://psihoman.ru/uploads/posts/2022-07/1657544415_5.jpg";
+  image[3] = "https://userpic.fishki.net/2016/01/10/466640/dcb1710f25c8e04f85b847fd8d573e88.jpg";
+  image[4] = "https://s1.1zoom.ru/b5050/340/255649-Sepik_3840x2400.jpg";
+  image[5] = "https://www.ukazka.ru/img/g/uk771771.jpg";
+  
+    let number = Math.floor(Math.random() * image.length);
+    avatarOutput.innerHTML = '<img src="'+ image[number]+'" width="250" height="250"/>';
+      }  else {
     avatarOutput.innerHTML = '<img src="' + avatarValue + '" width="250" height="250">';
-}
+      }
+    }
 
+
+  
 // функция вывода комментария
 
 const checkSpam  = () => {
@@ -48,11 +64,12 @@ const checkSpam  = () => {
 
 
 
-// вешаем обработчик событий на кнопку
-button.addEventListener('click', showOutputName);
-button.addEventListener('click', showOutputAvatar);
-button.addEventListener('click', checkSpam);
-button.addEventListener('click', noName);
+// вешаем обработчики событий на кнопку
+button.addEventListener('click', showOutputName); //вывод имени
+button.addEventListener('click', putRandomImage); // вывод аватара с условием рандом подбора картинки если не указан url
+button.addEventListener('click', checkSpam); // вывод комментария
+button.addEventListener('click', noName); //вывод username при незаполнен
+
 
 
 
@@ -80,7 +97,7 @@ control = 0;
  function noName() {
   const userName = document.getElementById('name');
   const userNameValue = userName.value;
- if (userNameValue == "") { 
+ if (userNameValue == null) { 
   userNameOutput.innerHTML = "Username";
  }}
 
@@ -223,6 +240,7 @@ dateOutput.innerHTML = totalDate;
 
 //вешаем обработчик вывода даты на кнопку
 button.addEventListener('click', showDate);
+
 
 
 
