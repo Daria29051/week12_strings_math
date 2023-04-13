@@ -45,19 +45,19 @@
     display: flex;
     flex-direction: column;
 }
-.output-part__profile, .output-part__profile2 {
+.output-part__profile {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
 }
 
-.output-part__name, .output-part__name2 {
+.output-part__name {
     color: palevioletred;
     font-weight: 600;
 }
 
-.output-part__date, .output-part__date2  {
+.output-part__date {
     font-weight: 400;
     font-size: 1em;
 }
