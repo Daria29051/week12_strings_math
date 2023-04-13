@@ -2,11 +2,17 @@
 
 const button = document.getElementById('button');
 
+// Забираем  в переменные поля для вывода input
+const userName = document.getElementById('name'); //поле ввода имени
+
+const avatar = document.getElementById('avatar'); // поле ввода ссылки на аватар
+
+const comment = document.getElementById('comment'); // поле ввода комментария
+
 
 
 // Забираем  в переменные поля для вывода output
 const userNameOutput = document.querySelector('.output-part__name');
-
 
 const avatarOutput = document.querySelector('.output-part__url');
 
@@ -15,9 +21,9 @@ const dateOutput = document.querySelector('.output-part__date');
 const commentOutput = document.querySelector('.output-part__comment');
 
 
+
 // функция вывода данных в поле имени
 const showOutputName = () => {
-    const userName = document.getElementById('name');
     const userNameValue = userName.value;
     const userNameValueLowered = userNameValue.toLowerCase();
     const userNameValueTrimmed = userNameValueLowered.trim().replace(/^ +| +$|( ) +/g,"$1");
@@ -25,8 +31,9 @@ const showOutputName = () => {
     const userNameCapitalized = userNameValueSplitted.map(function(word) {
  return word[0].toUpperCase() + word.slice(1);
   })
-  const finalUserName = userNameCapitalized.join(" ")
+  const finalUserName = userNameCapitalized.join(" ");
   userNameOutput.innerHTML = finalUserName;
+
 }
 
 
@@ -34,7 +41,6 @@ const showOutputName = () => {
 
     // // функция подстановки рандомного аватара
     const putRandomImage = () => {
-      const avatar = document.getElementById('avatar');
       const avatarValue = avatar.value;
       if (avatarValue == "")  {
       let image =  new Array();
@@ -57,7 +63,6 @@ const showOutputName = () => {
 // функция вывода комментария
 
 const checkSpam  = () => {
-    const comment = document.getElementById('comment');
     const commentValue = comment.value;
     const commentValueChecked = commentValue.replace(/viagra/gi, "***").replace(/xxx/gi, "***");
     commentOutput.innerHTML = commentValueChecked;
@@ -102,15 +107,14 @@ const onlyOneNo= () =>  {
   }
   }
 
-// обработчик событий на выделение только  чекбокса
+// обработчик событий на выделение только 1 чекбокса
 noCheckbox.addEventListener('click', onlyOneNo);
 yesCheckbox.addEventListener('click', onlyOneYes);
 
 
 
-// функция: если пользователь не ввел имя или выбрал чекбокс No = не показывать имя, то отобрази Username
+// функция: если пользователь не ввел имя или выбрал чекбокс No, то отобрази 'Username'
  function noName() {
-  const userName = document.getElementById('name');
   const userNameValue = userName.value;
  if ((userNameValue === "") && (noCheckbox.checked=true)) { 
   userNameOutput.innerHTML = "Username";
@@ -136,7 +140,7 @@ const hideNameInputPart = () => {
       NameFormPart.hidden=true} 
     }
 
-// вешаем обработчик событий (выделение только 1го чекбокса и скрытие поле с ФИО) на чекбоксы
+// вешаем обработчик событий на скрытие/раскрытие поле с ФИО на чекбоксы
     yesCheckbox.addEventListener('click', showNameInputPart);
     noCheckbox.addEventListener('click', hideNameInputPart);
 
@@ -260,4 +264,16 @@ dateOutput.innerHTML =totalDate;
 button.addEventListener('click', showDate);
 
 
-// функция последовательного отображения комментариев друг за другом
+
+
+//функция очистки формы
+const clearForm = () => {
+  const form = document.querySelector('.form');
+  form.reset();
+}
+
+//вешаем обработчик очистки формы на кнопку
+button.addEventListener('click', clearForm);
+
+
+
