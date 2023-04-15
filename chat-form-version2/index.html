@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Сервис комментариев со спам фильтром</h1>
+
+    <div class="container">
+      <div class="input-part">
+        <h2 class="subtitle">Оставьте Ваш комментарий</h2>
+        <form class="form">
+          <!-- чекбокс -->
+          <div class="input-part__check">
+            <p>Показывать Ваше имя?</p>
+            <li class="input-part_check-list">
+              <input type="checkbox" name="check-name" id="yes" value="yes" />
+              <label for="yes">Yes</label>
+            </li>
+            <li class="input-part_check-list">
+              <input type="checkbox" name="check-name" id="no" value="no" />
+              <label for="no">No</label>
+            </li>
+          </div>
+          <!-- Поле ввода ФИО -->
+          <div class="input-part__name">
+            <label for="name">Введите Ваше ФИО</label><br />
+            <input class="field" type="text" id="name" value="" />
+          </div>
+
+          <!-- Поле ссылки на аватар -->
+          <div class="input-part__url">
+            <label for="url">Введите ссылку Вашего аватара</label><br />
+            <input class="field" type="url" id="avatar" value="" />
+          </div>
+
+          <!-- Поле комментария-->
+          <div class="input-part__comment">
+            <label for="comment">Введите Ваш комментарий</label><br />
+            <textarea
+              class="field"
+              id="comment"
+              rows="10"
+              cols="40"
+              value=""
+            ></textarea>
+          </div>
+
+          <input
+            class="input-part__button"
+            id="button"
+            type="button"
+            value="Отправить"
+          />
+        </form>
+      </div>
+
+      <!-- Блок вывода -->
+      <div class="output-part">
+      <h2 class="subtitle">Чат</h2>
+
+      <div class="output-part__form"></div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
